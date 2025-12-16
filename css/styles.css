@@ -9,7 +9,8 @@
     /* Colors */
     --primary-color: #011638;
     --secondary-color: #f7f5f2;
-    --accent-color: #ffcb14;
+    --accent-color: #fde4e0;
+    --accent-dark: #e8b4ad;
     --text-color: #333;
     --text-light: #666;
     --white: #ffffff;
@@ -79,11 +80,12 @@ p {
 .btn-primary {
     background-color: var(--primary-color);
     color: var(--white);
+    border: 2px solid var(--primary-color);
 }
 
 .btn-primary:hover {
-    background-color: #1a1a1a;
-    transform: translateY(-2px);
+    background-color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 .btn-secondary {
@@ -94,6 +96,7 @@ p {
 
 .btn-secondary:hover {
     background-color: var(--primary-color);
+    border-color: var(--accent-color);
     color: var(--white);
 }
 
@@ -109,9 +112,9 @@ p {
 
 /* Navigation */
 .navbar {
-    background-color: var(--white);
+    background-color: var(--secondary-color);
     padding: 1.5rem 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -145,13 +148,13 @@ p {
 }
 
 .nav-menu a:hover {
-    color: var(--accent-color);
+    color: var(--accent-dark);
 }
 
 /* Hero Section */
 .hero {
     padding: var(--spacing-xl) 0;
-    background-color: var(--secondary-color);
+    background-color: var(--white);
 }
 
 .hero-content {
@@ -268,16 +271,15 @@ p {
 
 .mission-title {
     font-size: 2.5rem;
-    color: var(--white);
+    color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
 .mission-text {
     font-size: 1.25rem;
-    color: var(--white);
+    color: var(--text-color);
     max-width: 800px;
     margin: 0 auto;
-    opacity: 0.95;
 }
 
 /* Section Titles */
@@ -321,7 +323,7 @@ p {
 
 .step-number {
     font-size: 3rem;
-    color: var(--accent-color);
+    color: var(--accent-dark);
     font-weight: 700;
     margin-bottom: 1rem;
 }
@@ -402,7 +404,7 @@ p {
     top: -15px;
     right: 20px;
     background-color: var(--accent-color);
-    color: var(--white);
+    color: var(--primary-color);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.875rem;
@@ -422,7 +424,7 @@ p {
 
 .service-price {
     font-size: 1.25rem;
-    color: var(--accent-color);
+    color: var(--primary-color);
     font-weight: 700;
 }
 
@@ -448,7 +450,7 @@ p {
     content: "✓";
     position: absolute;
     left: 0;
-    color: var(--accent-color);
+    color: var(--accent-dark);
     font-weight: 700;
 }
 
@@ -481,7 +483,7 @@ p {
 }
 
 .testimonial-stars {
-    color: var(--accent-color);
+    color: var(--accent-dark);
     font-size: 1.25rem;
     margin-bottom: 1rem;
 }
@@ -576,6 +578,17 @@ p {
     font-style: italic;
 }
 
+.newsletter-form .btn-primary {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border-color: var(--accent-color);
+}
+
+.newsletter-form .btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
 /* Contact Section */
 .contact {
     padding: var(--spacing-xl) 0;
@@ -627,7 +640,7 @@ p {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--accent-color);
+    border-color: var(--accent-dark);
 }
 
 .form-note {
@@ -695,6 +708,8 @@ p {
     opacity: 1;
     color: var(--accent-color);
 }
+
+/* Ensure accent on dark backgrounds uses the lighter shade */
 
 .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.1);
