@@ -269,10 +269,12 @@
                 <h2 class="newsletter-title">The Business of Energy™</h2>
                 <p class="newsletter-subtitle">Part strategy, part storytelling, all energy</p>
                 <p class="newsletter-description">Join 5,000+ entrepreneurs getting weekly insights on building sustainable, profitable businesses without the burnout.</p>
-                <form class="newsletter-form" action="#" method="post">
-                    <input type="email" placeholder="Enter your email" required class="newsletter-input">
+                <form class="newsletter-form" action="https://formspree.io/f/xyzralkr" method="POST">
+                    <input type="email" name="email" placeholder="Enter your email" required class="newsletter-input">
+                    <input type="hidden" name="_subject" value="New Newsletter Subscriber">
                     <button type="submit" class="btn btn-primary">Subscribe</button>
                 </form>
+                <p class="form-success" style="display: none; color: #2e7d32; margin-top: 1rem;">Thanks for subscribing! Check your email for the free guide.</p>
                 <p class="newsletter-note">Free guide: "The 5 Energy Leaks Killing Your Productivity" sent immediately after signup</p>
             </div>
         </div>
@@ -284,7 +286,8 @@
             <h2 class="section-title">Ready to Build Differently?</h2>
             <p class="section-subtitle">Book a free 30-minute discovery call to explore how we can work together</p>
             <div class="contact-content">
-                <form class="contact-form" action="#" method="post">
+                <form class="contact-form" action="https://formspree.io/f/xgvgbrao" method="POST">
+                    <input type="hidden" name="_subject" value="New Discovery Call Request">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Name</label>
@@ -326,6 +329,8 @@
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg">Book Your Discovery Call</button>
                     <p class="form-note">You'll receive a calendar link within 24 hours to schedule your free 30-minute call</p>
+                    <p class="form-success" style="display: none; color: #2e7d32; margin-top: 1rem;">Thanks! We'll send your calendar link within 24 hours.</p>
+                    <p class="form-error" style="display: none; color: #c62828; margin-top: 1rem;">Something went wrong. Please try again or email directly.</p>
                 </form>
             </div>
         </div>

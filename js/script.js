@@ -12,18 +12,54 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form submission handling (placeholder - replace with actual form handling)
+// Form submission handling with Formspree
 const forms = document.querySelectorAll('form');
 forms.forEach(form => {
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
-        // Add your form submission logic here
-        alert('Form submitted! In production, this would connect to your email service or CRM.');
-        // For production, integrate with services like:
-        // - Mailchimp API
-        // - ConvertKit API
-        // - Your own backend
-        // - Formspree, Netlify Forms, etc.
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+        const successMsg = form.parentElement.querySelector('.form-success') || form.querySelector('.form-success');
+        const errorMsg = form.querySelector('.form-error');
+
+        // Disable button and show loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        // Hide any previous messages
+        if (successMsg) successMsg.style.display = 'none';
+        if (errorMsg) errorMsg.style.display = 'none';
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Success
+                form.reset();
+                if (successMsg) successMsg.style.display = 'block';
+                submitBtn.textContent = 'Sent!';
+
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                }, 3000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            // Error
+            if (errorMsg) errorMsg.style.display = 'block';
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+        }
     });
 });
 
